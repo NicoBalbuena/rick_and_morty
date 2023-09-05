@@ -1,9 +1,11 @@
 import SearchBar from "./SearchBar"
 
 
-const Nav = () => {
+const Nav = ({onSearch}) => {
     return(
-        <SearchBar></SearchBar>
+        <nav>
+            <SearchBar onSearch={onSearch}></SearchBar>
+        </nav>
     )
 }
 
