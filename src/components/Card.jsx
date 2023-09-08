@@ -22,7 +22,7 @@ export default function Card({id,name,status,species,gender,origin,image,onClose
    );
 }
 //Otra forma:
-/*export default function Card(props) {
+/*export default function Card(props) {   
    return (
       <div>
          <button onClick={props.onClose}>X</button>

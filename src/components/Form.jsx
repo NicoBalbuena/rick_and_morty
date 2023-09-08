@@ -1,16 +1,47 @@
+import { useState } from "react";
+import validation from "./Validation/validation";
 
 
+const Form = ({login}) => {
+    const [errors,setErrors]=useState({})
 
-const Form = () => {
+    const [userData,setUserData]=useState({
+        email:'',
+        password:''
+    })
+
+    const handleChange = (event) => {
+        setUserData({
+            ...userData,
+            [event.target.name]:event.target.value
+        })
+
+        setErrors(validation({
+            ...userData,
+            [event.target.name]:event.target.value
+        }))
+
+    } 
+    const handleSubmit = (event)=>{
+        event.preventDefault();
+        login(userData);
+    }
+
+
     return(
-        <form>
+        <form onSubmit={handleSubmit}>
             <label htmlFor="email">Email</label>
-            <input type="email" placeholder="ingrese su mail"></input>
+            <input type="text" name='email'placeholder="ingrese su mail" value={userData.email}
+            onChange={handleChange}></input>
+            {errors.email && <p>{errors.email}</p>}
 
-            <hr></hr>
+            <hb></hb>
 
-            <label htmlFor="passwrod">Password</label>
-            <input type="password" placeholder="Ingrese su contraseña"></input>
+            <label htmlFor="password">Password</label>
+            <input type="password"name='password' placeholder="Ingrese su contraseña"value={userData.password}
+            onChange={handleChange}></input>
+            {errors.password && <p>{errors.password}</p>}
+
 
             <button>Submit</button>
 
