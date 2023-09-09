@@ -3,6 +3,8 @@ import { Link } from "react-router-dom"
 
 
 const Nav = ({onSearch}) => {
+
+    
     return(
         <nav>
             <SearchBar onSearch={onSearch}></SearchBar>
@@ -13,6 +15,10 @@ const Nav = ({onSearch}) => {
 
             <button>
                 <Link to='/home'>HOME</Link>
+            </button>
+
+            <button>
+                <Link to='/favorites'>FAVORITOS</Link>
             </button>
 
 
